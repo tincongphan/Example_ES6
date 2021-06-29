@@ -57,17 +57,46 @@ const fcNumber = function (){
     var a = 5;
 }
 
-console.log(a); // error
+// console.log(a); // error
 
 // =====> Block Scope: là phạm vi khai báo biến bên trong {...}
-if(true){
-    var x = 1;
-}
-console.log(x); // x = 1
+// if(true){
+//     var x = 1;
+// }
+// console.log(x); // x = 1
 
-if(true){
-    let y = 2;
-}
-console.log(y); // error
+// if(true){
+//     let y = 2;
+// }
+// console.log(y); // error
 
 // var không tuân thủ block scope. Let & Const sinh ra để khắc phục điều đó
+
+// =====> Arrow Function
+
+/* This context
+ ==> Function thường: bên trong function có sẵn con trỏ this, thay đổi theo ngữ cảnh
+ ==> Arrow function: không có con trỏ this. Nếu gọi this trong arrow function nó sẽ lấy 
+ this của function thường bên ngoài gấn nó nhất
+ 
+ */
+const student = {
+    name : "abc",
+    showInfo : () => {
+        console.log(this); // window
+        console.log(this.name); // undefinded
+    }
+}
+
+student.showInfo()
+
+const student1 = {
+    name : "abc",
+    showInfo : function() {
+        console.log(this); // {name : "abc", showInfo : function}
+        console.log(this.name); // abc
+    }
+}
+
+student1.showInfo()
+
