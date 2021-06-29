@@ -115,8 +115,14 @@ RestPara( 1, 2)
 RestPara( 1, 2, 3)
 RestPara( 1, 2, 3, 4)
 
+// Default Parameters
+// Cho phép set giá trị mặc định tham số (parameters) nếu như không có đối số (arguments) truyền vào
 
+function tinhTong(a = 10, b = 10){
+    console.log(a + b);
+}
 
+tinhTong() // 122
 
 
 
