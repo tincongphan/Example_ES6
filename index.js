@@ -100,3 +100,26 @@ const student1 = {
 
 student1.showInfo()
 
+// Rest Parameters
+// Các tham số truyền vào sẽ hợp thành 1 mảng. Dùng khi không biết đầu vào có bao nhiêu tham số
+
+function RestPara(...restpara){
+    console.log(restpara); 
+    let sum = 0 ;
+    for(let i = 0; i < restpara.length; i++){
+        sum += restpara[i]
+    }
+    console.log(sum);
+}
+RestPara( 1, 2)
+RestPara( 1, 2, 3)
+RestPara( 1, 2, 3, 4)
+
+
+
+
+
+
+
+
+
