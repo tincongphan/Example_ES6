@@ -43,10 +43,31 @@
 // ======> Hoisting
 
 //  Khi khai báo với var thì biến sẽ được kéo lên đầu, còn let và const thì không.
-console.log(a); // undefinded
-var a = 1;
+// console.log(a); // undefinded
+// var a = 1;
 
-console.log(b);
-let b = 1; // error
+// console.log(b);
+// let b = 1; // error
 
 //  let và const khắc phục hoisting của var. Nghĩa là không thể sử dụng let & const trước khi khai báo.
+
+// =====> Function Scope: là phạm vi khai báo biến bên trong 1 hàm.
+
+const fcNumber = function (){
+    var a = 5;
+}
+
+console.log(a); // error
+
+// =====> Block Scope: là phạm vi khai báo biến bên trong {...}
+if(true){
+    var x = 1;
+}
+console.log(x); // x = 1
+
+if(true){
+    let y = 2;
+}
+console.log(y); // error
+
+// var không tuân thủ block scope. Let & Const sinh ra để khắc phục điều đó
