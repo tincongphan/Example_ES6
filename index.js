@@ -124,6 +124,56 @@ function tinhTong(a = 10, b = 10){
 
 tinhTong() // 122
 
+// For in & For of
+
+// ====> Duyệt mảng
+
+let arrayStudent = [{name: "nguyen a, age: 12"}, {name: "nguyen b, age: 13"}, {name: "nguyen c, age: 14"}]
+
+for(item in arrayStudent){
+    console.log(item); 
+}
+// For in trả về chỉ số index : 0, 1, 2
+
+for(item of arrayStudent){
+    console.log(item);
+}
+
+/* For of trả về từng phần tử trong mảng
+
+{name: "nguyen a, age: 12"}
+{name: "nguyen b, age: 13"}
+{name: "nguyen c, age: 14"}
+
+*/
+
+// ====> Duyệt object
+
+let object = {
+    name : 'nguyen thi a', 
+    age: 20, 
+    address: "ho chi minh city"
+}
+
+for(item in object){
+    console.log(item);
+}
+
+// For in trả về thuộc tính ( key ) của object: name, age, address. Không dùng for of cho object
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
