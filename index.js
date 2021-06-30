@@ -366,9 +366,52 @@ console.log(result_reverse);
  */
 
 
+// Sort: Sắp xếp tăng dần hoặc giảm dần
 
+let listProduct_5 = [
+    { id: 1, name: 'iphone 4', price: 200 },
+    { id: 2, name: 'samsung ', price: 300 },
+    { id: 3, name: 'xiomi', price: 400 },
+    { id: 4, name: 'samsung', price: 300 },
+    { id: 5, name: 'nokia', price: 600 }
+]
 
+//  Sắp xếp theo chuỗi
+let sapXep = listProduct_5.sort((spTiepTheo, spHienTai) => {
+    
+    let spNext = spTiepTheo.name.toLowerCase();
+    let spCurrent = spHienTai.name.toLowerCase();
+    if(spNext > spCurrent){
+        return 1; // Giữ nguyên
+    } else {
+        return -1 ; // Đảo vị trí
+    }
+})
 
+console.log(sapXep);
+
+/*
+    0: {id: 1, name: "iphone 4", price: 200}
+    1: {id: 5, name: "nokia", price: 600}
+    2: {id: 4, name: "samsung", price: 300}
+    3: {id: 2, name: "samsung ", price: 300}
+
+ */
+
+// Sắp xếp theo số
+
+let sapXepTheoSo = listProduct_5.sort((spNext, spCurrent) => {
+    return spNext.price - spCurrent.price  // giá sau trừ giá trước > 0 thì sắp xếp tăng dần
+})
+console.log(sapXepTheoSo);
+
+/*
+    0: {id: 1, name: "iphone 4", price: 200}
+    1: {id: 4, name: "samsung", price: 300}
+    2: {id: 2, name: "samsung ", price: 300}
+    3: {id: 3, name: "xiomi", price: 400}
+    4: {id: 5, name: "nokia", price: 600}
+*/
 
 
 
