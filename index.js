@@ -53,7 +53,7 @@
 
 // =====> Function Scope: là phạm vi khai báo biến bên trong 1 hàm.
 
-const fcNumber = function (){
+const fcNumber = function () {
     var a = 5;
 }
 
@@ -81,8 +81,8 @@ const fcNumber = function (){
  
  */
 const student = {
-    name : "abc",
-    showInfo : () => {
+    name: "abc",
+    showInfo: () => {
         console.log(this); // window
         console.log(this.name); // undefinded
     }
@@ -91,8 +91,8 @@ const student = {
 student.showInfo()
 
 const student1 = {
-    name : "abc",
-    showInfo : function() {
+    name: "abc",
+    showInfo: function () {
         console.log(this); // {name : "abc", showInfo : function}
         console.log(this.name); // abc
     }
@@ -103,22 +103,22 @@ student1.showInfo()
 // Rest Parameters
 // Các tham số truyền vào sẽ hợp thành 1 mảng. Dùng khi không biết đầu vào có bao nhiêu tham số
 
-function RestPara(...restpara){
-    console.log(restpara); 
-    let sum = 0 ;
-    for(let i = 0; i < restpara.length; i++){
+function RestPara(...restpara) {
+    console.log(restpara);
+    let sum = 0;
+    for (let i = 0; i < restpara.length; i++) {
         sum += restpara[i]
     }
     console.log(sum);
 }
-RestPara( 1, 2)
-RestPara( 1, 2, 3)
-RestPara( 1, 2, 3, 4)
+RestPara(1, 2)
+RestPara(1, 2, 3)
+RestPara(1, 2, 3, 4)
 
 // Default Parameters
 // Cho phép set giá trị mặc định tham số (parameters) nếu như không có đối số (arguments) truyền vào
 
-function tinhTong(a = 10, b = 10){
+function tinhTong(a = 10, b = 10) {
     console.log(a + b);
 }
 
@@ -128,14 +128,14 @@ tinhTong() // 122
 
 // ====> Duyệt mảng
 
-let arrayStudent = [{name: "nguyen a, age: 12"}, {name: "nguyen b, age: 13"}, {name: "nguyen c, age: 14"}]
+let arrayStudent = [{ name: "nguyen a, age: 12" }, { name: "nguyen b, age: 13" }, { name: "nguyen c, age: 14" }]
 
-for(item in arrayStudent){
-    console.log(item); 
+for (item in arrayStudent) {
+    console.log(item);
 }
 // For in trả về chỉ số index : 0, 1, 2
 
-for(item of arrayStudent){
+for (item of arrayStudent) {
     console.log(item);
 }
 
@@ -150,12 +150,12 @@ for(item of arrayStudent){
 // ====> Duyệt object
 
 let object = {
-    name : 'nguyen thi a', 
-    age: 20, 
+    name: 'nguyen thi a',
+    age: 20,
     address: "ho chi minh city"
 }
 
-for(item in object){
+for (item in object) {
     console.log(item);
 }
 
@@ -169,12 +169,12 @@ for(item in object){
  */
 
 // ES5
-function hocsinh(ten, tuoi){
+function hocsinh(ten, tuoi) {
     this.name = ten,
-    this.age = tuoi,
-    this.xuatThongTinHS = function(){
-        console.log('thong tin hoc sinh', this.name,  this.age);
-    } 
+        this.age = tuoi,
+        this.xuatThongTinHS = function () {
+            console.log('thong tin hoc sinh', this.name, this.age);
+        }
 }
 
 let student3 = new hocsinh("nguyen a", 15)
@@ -183,14 +183,14 @@ student3.xuatThongTinHS()
 // ES6
 class hocsinh_ {
 
-    constructor(ten_hs, tuoi_hs){
+    constructor(ten_hs, tuoi_hs) {
         this.TEN_HS = ten_hs,
-        this.TUOI_HS = tuoi_hs
+            this.TUOI_HS = tuoi_hs
     }
     // xuatThongTinHS_ = () => {
     //     console.log(this.TEN_HS, this.TUOI_HS);
     // }
-    xuatThongTinHS_(){
+    xuatThongTinHS_() {
         console.log(this.TEN_HS, this.TUOI_HS);
     }
 }
@@ -201,22 +201,22 @@ student4.xuatThongTinHS_()
 // Tính kế thừa ( extend )
 
 class NhanVien {
-    constructor(manv, tennv){
+    constructor(manv, tennv) {
         this.maNV = manv,
-        this.tenNV = tennv
+            this.tenNV = tennv
     }
-    tinhLuong(){
+    tinhLuong() {
         return 1000;
     }
 }
 
-class QuanLy extends NhanVien{
-    
-    constructor(manv, tenvn, mangPhongBan){
+class QuanLy extends NhanVien {
+
+    constructor(manv, tenvn, mangPhongBan) {
         super(manv, tenvn);
         this.dsPhongBan = mangPhongBan
     }
-    tinhLuong(){
+    tinhLuong() {
 
         return super.tinhLuong + 1000;
     }
@@ -229,11 +229,11 @@ console.log(manager); // QuanLy {maNV: 1, tenNV: "nguyen b", dsPhongBan: "CNTT"}
 // Fillter: trả về kết quả là 1 mảng
 
 let listProduct = [
-    {id: 1, name: 'iphone 4', price: 200},
-    {id: 2, name: 'iphone 5', price: 300},
-    {id: 3, name: 'iphone 6', price: 400},
-    {id: 4, name: 'iphone 7', price: 300},
-    {id: 5, name: 'iphone 8', price: 600}
+    { id: 1, name: 'iphone 4', price: 200 },
+    { id: 2, name: 'iphone 5', price: 300 },
+    { id: 3, name: 'iphone 6', price: 400 },
+    { id: 4, name: 'iphone 7', price: 300 },
+    { id: 5, name: 'iphone 8', price: 600 }
 ]
 
 let product = listProduct.filter(sanpham => sanpham.price === 300)
@@ -260,8 +260,26 @@ console.log(index); // 2
 let index_1 = listProduct.findIndex(item => item.id === 7)
 console.log(index_1);
 
+// Foreach: dùng để xử lý mảng, không trả về cái gì cả. Mảng có bao nhiêu phần tử thì duyệt bấy nhiêu lần.
 
+let listProduct_1 = [
+    { id: 1, name: 'iphone 4', price: 200 },
+    { id: 2, name: 'iphone 5', price: 300 },
+    { id: 3, name: 'iphone 6', price: 400 },
+    { id: 4, name: 'iphone 7', price: 300 },
+    { id: 5, name: 'iphone 8', price: 600 }
+]
 
+listProduct_1.forEach((item, index) => {
+    console.log(item);
+    /* Kết quả
+       {id: 1, name: 'iphone 4', price: 200}
+       {id: 2, name: 'iphone 5', price: 300}
+       {id: 3, name: 'iphone 6', price: 400}
+       {id: 4, name: 'iphone 7', price: 300}
+       {id: 5, name: 'iphone 8', price: 600}
+     */
+})
 
 
 
