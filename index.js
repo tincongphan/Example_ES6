@@ -282,6 +282,37 @@ listProduct_1.forEach((item, index) => {
 })
 
 
+// Map : giống foreach() nhưng khác ở chỗ nó có giá trị trả về và lặp qua từng phần tử
+
+let listProduct_2 = [
+    { id: 1, name: 'iphone 4', price: 200 },
+    { id: 2, name: 'iphone 5', price: 300 },
+    { id: 3, name: 'iphone 6', price: 400 },
+    { id: 4, name: 'iphone 7', price: 300 },
+    { id: 5, name: 'iphone 8', price: 600 }
+]
+
+let result_map = listProduct_2.map((item, index) => {
+
+    if(item.id % 2 === 0){
+        return item;
+    }
+})
+
+console.log(result_map);
+/*
+    0: undefined
+    1: {id: 2, name: "iphone 5", price: 300}
+    2: undefined
+    3: {id: 4, name: "iphone 7", price: 300}
+    4: undefined
+ */
+
+
+
+
+
+
 
 
 
