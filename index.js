@@ -161,6 +161,49 @@ for(item in object){
 
 // For in trả về thuộc tính ( key ) của object: name, age, address. Không dùng for of cho object
 
+/* OOP có 4 tính chất
+    1/ Tính đóng gói
+    2/ Tính đa hình
+    3/ Tính kế thừa
+    4/ Tính trừu tượng
+ */
+
+// ES5
+function hocsinh(ten, tuoi){
+    this.name = ten,
+    this.age = tuoi,
+    this.xuatThongTinHS = function(){
+        console.log('thong tin hoc sinh', this.name,  this.age);
+    } 
+}
+
+let student3 = new hocsinh("nguyen a", 15)
+student3.xuatThongTinHS()
+
+// ES6
+class hocsinh_ {
+
+    constructor(ten_hs, tuoi_hs){
+        this.TEN_HS = ten_hs,
+        this.TUOI_HS = tuoi_hs
+    }
+    // xuatThongTinHS_ = () => {
+    //     console.log(this.TEN_HS, this.TUOI_HS);
+    // }
+    xuatThongTinHS_(){
+        console.log(this.TEN_HS, this.TUOI_HS);
+    }
+}
+
+let student4 = new hocsinh_("nguyen b", 17)
+student4.xuatThongTinHS_()
+
+
+
+
+
+
+
 
 
 
