@@ -161,11 +161,11 @@ for(item in object){
 
 // For in trả về thuộc tính ( key ) của object: name, age, address. Không dùng for of cho object
 
-/* OOP có 4 tính chất
-    1/ Tính đóng gói
-    2/ Tính đa hình
-    3/ Tính kế thừa
-    4/ Tính trừu tượng
+/* OOP có 4 tính chất : 4 main principles
+    1/ Tính đóng gói:   encapsulation
+    2/ Tính đa hình:    polymorphism
+    3/ Tính kế thừa:    inheritance
+    4/ Tính trừu tượng: abstraction
  */
 
 // ES5
@@ -197,6 +197,47 @@ class hocsinh_ {
 
 let student4 = new hocsinh_("nguyen b", 17)
 student4.xuatThongTinHS_()
+
+// Tính kế thừa ( extend )
+
+class NhanVien {
+    constructor(manv, tennv){
+        this.maNV = manv,
+        this.tenNV = tennv
+    }
+    tinhLuong(){
+        return 1000;
+    }
+}
+
+class QuanLy extends NhanVien{
+    
+    constructor(manv, tenvn, mangPhongBan){
+        super(manv, tenvn);
+        this.dsPhongBan = mangPhongBan
+    }
+    tinhLuong(){
+
+        return super.tinhLuong + 1000;
+    }
+}
+
+let manager = new QuanLy(1, "nguyen b", "CNTT")
+
+console.log(manager); // QuanLy {maNV: 1, tenNV: "nguyen b", dsPhongBan: "CNTT"}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
