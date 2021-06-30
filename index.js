@@ -294,7 +294,7 @@ let listProduct_2 = [
 
 let result_map = listProduct_2.map((item, index) => {
 
-    if(item.id % 2 === 0){
+    if (item.id % 2 === 0) {
         return item;
     }
 })
@@ -322,9 +322,9 @@ let listProduct_3 = [
 
 // Tính tổng tiền
 const result_reduce = listProduct_3.reduce((total, sanpham, index) => {
-    
+
     return total += sanpham.price
-}, 0 )
+}, 0)
 
 console.log(result_reduce); // 1800
 
@@ -332,7 +332,7 @@ console.log(result_reduce); // 1800
 
 const newArray = listProduct_3.reduce((array, sanpham, index) => {
 
-    if(sanpham.name === "iphone 4"){
+    if (sanpham.name === "iphone 4") {
         array.push(sanpham)
     }
     return array;
@@ -378,13 +378,13 @@ let listProduct_5 = [
 
 //  Sắp xếp theo chuỗi
 let sapXep = listProduct_5.sort((spTiepTheo, spHienTai) => {
-    
+
     let spNext = spTiepTheo.name.toLowerCase();
     let spCurrent = spHienTai.name.toLowerCase();
-    if(spNext > spCurrent){
+    if (spNext > spCurrent) {
         return 1; // Giữ nguyên
     } else {
-        return -1 ; // Đảo vị trí
+        return -1; // Đảo vị trí
     }
 })
 
@@ -414,17 +414,109 @@ console.log(sapXepTheoSo);
 */
 
 
+// Promise
+/*
+-   Promise sinh ra để giải quyết vấn đề callbackhell
+-   Các bước khởi tạo Promise:
+    1/ new Promise
+    2/ truyền vào function với 2 tham số resolve, reject
+-   Excutor sẽ thực thi ngay trước khi trả về giá trị cho promise
+-   Có 3 trạng thái: Pending, Fullfill, Reject
+-   Nếu trong excutor function không gọi resolve or reject sẽ gây ra memory leak
+-   Khi gọi resolve() or reject() thì sẽ rơi vào then or catch để xử lý. Nhưng sẽ luôn chạy finally()
+*/
+let promise = new Promise(
+
+    // excutor
+    function (resolve, reject) {
+        // resolve("success")
+        reject("error")
+    }
+)
+
+promise
+    .then((message) => {
+        console.log(message); // success 
+    })
+    .catch((error) => {
+        console.log(error) // error
+    })
+    .finally(() => {
+        console.log("done")
+    })
 
 
+// Promise Chain. Thường dùng khi data của then sau phụ thuộc vào then trước
+
+// Case 1: Khi giá trị return trả về không phải là 1 promise
+let promise_1 = new Promise((resolve, reject) => {
+    resolve()
+})
+
+promise_1
+    .then(() => {
+        return 1;
+    })
+    .then((data) => {
+        console.log(data); // 1
+        return 2;
+    })
+    .then((data) => {
+        console.log(data)  // 2
+        return 3;
+    })
+    .then((data) => {
+        console.log(data);  // 3
+       
+    })
+
+//  Case 2: Khi return trả về là 1 promise
+function sleep(ms) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            resolve()
+        }, ms)
+    })
+}
+
+sleep(2000)
+    .then(function (resolve) {
+        console.log(1);
+        return sleep(1000)
+    })
+    .then(function () {
+        console.log(2)
+        return sleep(1000)
+    })
+    .then(function () {
+        console.log(3);
+    })
 
 
+//  Promise all: Thường dùng khi các Promise không phụ thuộc lẫn nhau.
+
+let promiseAll_1 = new Promise(function (resolve, reject) {
+    
+    setTimeout(function () {
+        resolve([1, 2])
+    }, 1500)
+})
 
 
+let promiseAll_2 = new Promise(function (resolve, reject) {
+    
+    setTimeout(function () {
+        resolve([3, 4])
+    }, 1500)
+})
 
-
-
-
-
+Promise.all([promiseAll_1, promiseAll_2])
+        .then(function (data) {
+            console.log(data);
+            let data_1 = data[0];
+            let data_2 = data[1];
+            console.log(data_1.concat(data_2));
+        })
 
 
 
