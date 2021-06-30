@@ -243,6 +243,26 @@ console.log(product);
   {id: 4, name: 'iphone 7', price: 300},
  */
 
+//   Find: trả về kết quả là 1 đối tượng. Nếu không có phần tử thỏa điều kiện trả về undefinded.
+//   Nếu có 2 object thỏa điều kiện, nó trả về phần tử đầu tiên.
+
+let price = listProduct.find(item => item.price === 300)
+console.log(price); // {id: 1, name: 'iphone 4', price: 200}
+
+let nextPrice = listProduct.find(item => item.price === 1000)
+console.log(nextPrice); // undefinded
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
