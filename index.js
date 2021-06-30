@@ -345,10 +345,25 @@ console.log(newArray);
     2: {id: 4, name: "iphone 4", price: 300}
  */
 
+//  Reverse: Đảo mảng
 
+let listProduct_4 = [
+    { id: 1, name: 'iphone 4', price: 200 },
+    { id: 2, name: 'iphone 5', price: 300 },
+    { id: 3, name: 'iphone 4', price: 400 },
+    { id: 4, name: 'iphone 4', price: 300 },
+    { id: 5, name: 'iphone 8', price: 600 }
+]
 
-
-
+let result_reverse = listProduct_4.reverse()
+console.log(result_reverse);
+/*
+    0: {id: 5, name: "iphone 8", price: 600}
+    1: {id: 4, name: "iphone 4", price: 300}
+    2: {id: 3, name: "iphone 4", price: 400}
+    3: {id: 2, name: "iphone 5", price: 300}
+    4: {id: 1, name: "iphone 4", price: 200}
+ */
 
 
 
