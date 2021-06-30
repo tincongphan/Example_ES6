@@ -308,11 +308,42 @@ console.log(result_map);
     4: undefined
  */
 
+// Reduce: thực thi n lần so với n phần tử trong mảng tạo ra 1 giá trị mới
+// có thể là 1 mảng, 1 object ... tùy theo xử lý return trong hàm
 
 
+let listProduct_3 = [
+    { id: 1, name: 'iphone 4', price: 200 },
+    { id: 2, name: 'iphone 5', price: 300 },
+    { id: 3, name: 'iphone 4', price: 400 },
+    { id: 4, name: 'iphone 4', price: 300 },
+    { id: 5, name: 'iphone 8', price: 600 }
+]
 
+// Tính tổng tiền
+const result_reduce = listProduct_3.reduce((total, sanpham, index) => {
+    
+    return total += sanpham.price
+}, 0 )
 
+console.log(result_reduce); // 1800
 
+// Tạo ra mảng mới
+
+const newArray = listProduct_3.reduce((array, sanpham, index) => {
+
+    if(sanpham.name === "iphone 4"){
+        array.push(sanpham)
+    }
+    return array;
+}, [])
+
+console.log(newArray);
+/*
+    0: {id: 1, name: "iphone 4", price: 200}
+    1: {id: 3, name: "iphone 4", price: 400}
+    2: {id: 4, name: "iphone 4", price: 300}
+ */
 
 
 
