@@ -226,8 +226,22 @@ let manager = new QuanLy(1, "nguyen b", "CNTT")
 
 console.log(manager); // QuanLy {maNV: 1, tenNV: "nguyen b", dsPhongBan: "CNTT"}
 
+// Fillter: trả về kết quả là 1 mảng
 
+let listProduct = [
+    {id: 1, name: 'iphone 4', price: 200},
+    {id: 2, name: 'iphone 5', price: 300},
+    {id: 3, name: 'iphone 6', price: 400},
+    {id: 4, name: 'iphone 7', price: 300},
+    {id: 5, name: 'iphone 8', price: 600}
+]
 
+let product = listProduct.filter(sanpham => sanpham.price === 300)
+console.log(product);
+/*
+  {id: 2, name: 'iphone 5', price: 300},
+  {id: 4, name: 'iphone 7', price: 300},
+ */
 
 
 
