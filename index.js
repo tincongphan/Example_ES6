@@ -252,8 +252,13 @@ console.log(price); // {id: 1, name: 'iphone 4', price: 200}
 let nextPrice = listProduct.find(item => item.price === 1000)
 console.log(nextPrice); // undefinded
 
+// FindIndex: trả về chỉ số index. Nếu không tìm thấy phần tử thỏa điều kiện trả về -1
 
+let index = listProduct.findIndex(item => item.id === 3)
+console.log(index); // 2
 
+let index_1 = listProduct.findIndex(item => item.id === 7)
+console.log(index_1);
 
 
 
